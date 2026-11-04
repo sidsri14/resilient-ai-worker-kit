@@ -1,0 +1,36 @@
+{
+  "name": "resilient-ai-worker-kit",
+  "version": "1.0.0",
+  "description": "Production-ready resilient AI worker pipeline with Redis, BullMQ, multi-model failover, and token-budget kill switches.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "bullmq": "^5.8.5",
+    "dotenv": "^16.4.5",
+    "ioredis": "^5.4.1",
+    "pino": "^9.2.0",
+    "pino-pretty": "^11.2.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.2",
+    "vitest": "^1.6.0"
+  },
+  "keywords": [
+    "ai",
+    "bullmq",
+    "redis",
+    "llm-pipeline",
+    "failover",
+    "token-budget",
+    "agent-queue"
+  ],
+  "license": "MIT"
+}
