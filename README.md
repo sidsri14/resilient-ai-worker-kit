@@ -61,5 +61,10 @@ flowchart LR
 
 ---
 
-## 📄 License
-MIT License
+## 📄 License & Commercial Access
+
+[![Get Pro Edition on Polar](https://img.shields.io/badge/Polar.sh-Get_Pro_Access_%2439-blue?style=for-the-badge&logo=github)](https://polar.sh/sidsri14/products)
+
+- **Community Edition:** Free & Open Source under the MIT License.
+- **Enterprise / Production License ($39):** Includes priority queue dashboards, distributed rate-limiting middleware, and direct setup guidance. Available on [Polar.sh](https://polar.sh/sidsri14).
+
