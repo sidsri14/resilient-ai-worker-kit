@@ -28,7 +28,7 @@ Most AI worker queues fail in production because:
 
 ### 1. Installation
 ```bash
-git clone https://github.com/your-org/resilient-ai-worker-kit.git
+git clone https://github.com/sidsri14/resilient-ai-worker-kit.git
 cd resilient-ai-worker-kit
 npm install
 ```
