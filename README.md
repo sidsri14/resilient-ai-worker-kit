@@ -20,7 +20,7 @@ Most AI worker queues fail in production because:
 - 🔄 **Multi-Provider Failover Router:** Automatically shifts requests from primary models (OpenAI) to fallbacks (Anthropic, Groq, Ollama) on errors or timeouts.
 - 🛑 **Redis-Backed Budget Kill Switch:** Real-time token consumption tracking that hard-stops jobs before blowing through daily/monthly spend limits.
 - 📬 **BullMQ + Redis Workflows:** Built-in dead-letter queues, jittered exponential backoff retries, and concurrency limits.
-- 📊 **Structured Logging:** Ready for Datadog, Grafana Loki, or CloudWatch ingestion.
+- 📊 **Verification & Regression Tests:** Verified `7/7` automated Vitest tests covering atomic Redis budget enforcement, daily spend kill switches, and failover routing (`npm test`).
 
 ---
 
@@ -65,6 +65,14 @@ flowchart LR
 
 [![Get Pro Edition on Polar](https://img.shields.io/badge/Polar.sh-Instant_Checkout_%2439-blue?style=for-the-badge&logo=github)](https://buy.polar.sh/polar_cl_4mrUXvOPjiB4LEIEBsVyJshejMA8oq7XIHPQV163dbE)
 
-- **Community Edition:** Free & Open Source under the MIT License.
-- **Enterprise / Production License ($39):** Includes priority queue dashboards, distributed rate-limiting middleware, and direct setup guidance. 👉 [**Instant Checkout on Polar.sh ($39)**](https://buy.polar.sh/polar_cl_4mrUXvOPjiB4LEIEBsVyJshejMA8oq7XIHPQV163dbE)
+- **Community Source Edition:** Open Source under the MIT License (`src/`, `test/`).
+- **Enterprise / Commercial Starter Kit ($39 USD):** Includes the versioned commercial GitHub Release ZIP (`v1.1.0`), pre-compiled `dist/` artifacts, commercial deployment rights across client/SaaS systems without source attribution, and direct setup guidance. 👉 [**Instant Checkout on Polar.sh ($39)**](https://buy.polar.sh/polar_cl_4mrUXvOPjiB4LEIEBsVyJshejMA8oq7XIHPQV163dbE)
+
+---
+
+## 🛠️ Engineering Services & Portfolio
+
+- **Custom AI Worker Pipelines & LLM Gateways ($60/hr):** [Hire on Upwork](https://www.upwork.com/freelancers/~01f93f1a56b9ef1b8d)
+- **Live Storefront & Case Studies:** [sidsri14.github.io](https://sidsri14.github.io/)
+- **Direct Contact:** `sidsri1502@gmail.com`
 
