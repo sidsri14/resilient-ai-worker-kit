@@ -1,78 +1,43 @@
-# 🛡️ Resilient AI Worker Kit (Node.js + BullMQ + Redis)
+# Resilient AI Worker Kit
 
-A battle-tested production template for running high-throughput, fault-tolerant AI agent queues with **automatic model failover**, **exponential backoff**, and **token-budget kill switches**.
+An AI-assisted Node.js/TypeScript starter for exploring BullMQ queues, sequential provider fallback and Redis-backed token-usage checks. This is prototype code with mock providers, not a production-validated AI service.
 
----
+## Included
 
-## ⚡ Why This Kit?
+- TypeScript source and precompiled JavaScript in `dist/`.
+- A provider interface, sequential fallback router and mock providers for demonstrations.
+- BullMQ queue/worker examples and Redis-backed daily usage accounting.
+- Seven automated tests using mock providers and an in-memory Redis substitute.
+- Environment example, lockfile and MIT `LICENSE`.
 
-Most AI worker queues fail in production because:
-1. **Unpredictable Rate Limits:** A single 429 error cascades and crashes active agent tasks.
-2. **Runaway Token Bills:** Recursive agents or infinite retry loops run up \$1,000+ bills overnight.
-3. **Provider Outages:** When an API provider goes down, all background workers stall.
+## Limits to understand before using it
 
-**The Resilient AI Worker Kit solves this out of the box.**
+- Provider names in the examples are mock labels. Live OpenAI, Anthropic, Groq or Ollama API adapters are not included.
+- The budget check and usage update are separate operations. The increment records usage atomically, but the overall check-and-execute flow does not reserve capacity atomically across concurrent workers. It is not a guaranteed spending cap.
+- Mock tests do not establish production throughput, billing accuracy, Redis integration reliability or operational safety.
+- Deployment, live provider integration, security review and operational configuration require additional work.
+- The source is also available publicly. The paid offering is a packaged distribution and the setup guidance described by the seller, not exclusive access to otherwise unavailable source code. Confirm the support scope before purchase.
 
----
+## Local setup
 
-## 🌟 Key Features
+Use a supported Node.js installation and a reachable Redis instance. Configure Redis using `.env.example`. No Redis service or paid provider account is bundled.
 
-- 🔄 **Multi-Provider Failover Router:** Automatically shifts requests from primary models (OpenAI) to fallbacks (Anthropic, Groq, Ollama) on errors or timeouts.
-- 🛑 **Redis-Backed Budget Kill Switch:** Real-time token consumption tracking that hard-stops jobs before blowing through daily/monthly spend limits.
-- 📬 **BullMQ + Redis Workflows:** Built-in dead-letter queues, jittered exponential backoff retries, and concurrency limits.
-- 📊 **Verification & Regression Tests:** Verified `7/7` automated Vitest tests covering atomic Redis budget enforcement, daily spend kill switches, and failover routing (`npm test`).
-
----
-
-## 🚀 Quick Start
-
-### 1. Installation
-```bash
-git clone https://github.com/sidsri14/resilient-ai-worker-kit.git
-cd resilient-ai-worker-kit
-npm install
+```sh
+npm ci
+npm test
+npm run build
 ```
 
-### 2. Environment Setup
-```bash
-cp .env.example .env
-```
+Copy `.env.example` to `.env` and configure your own local Redis settings before running `npm start`. The example pipeline uses mock providers. Never put live credentials in a shared package.
 
-### 3. Run Pipeline
-```bash
-npm run dev
-```
+## Verification of this package
 
----
+The source passed seven mock-based tests and the TypeScript compiler during package preparation. This archive contains the resulting seven compiled JavaScript files, including `dist/index.js`. See `PACKAGE-VERIFICATION.md` for the scope of those checks.
 
-## 🏗️ Architecture
+## Source and license
 
-```mermaid
-flowchart LR
-    A[Client Request] --> B[BullMQ Job Queue]
-    B --> C[Budget Pre-Check]
-    C -- Exceeds Budget --> D[Reject / Kill Switch]
-    C -- Within Budget --> E[Resilient Router]
-    E -- Primary 429/500 --> F[Fallback Model]
-    E -- Primary Success --> G[Worker Output]
-    F --> G
-    G --> H[Record Atomic Token Usage]
-```
+Public source: https://github.com/sidsri14/resilient-ai-worker-kit
 
----
+The repository's MIT `LICENSE` is included unchanged. Dependencies have their own licenses. This document makes no additional licensing or attribution-waiver promise.
 
-## 📄 License & Commercial Access
-
-[![Get Pro Edition on Polar](https://img.shields.io/badge/Polar.sh-Instant_Checkout_%2439-blue?style=for-the-badge&logo=github)](https://buy.polar.sh/polar_cl_4mrUXvOPjiB4LEIEBsVyJshejMA8oq7XIHPQV163dbE)
-
-- **Community Source Edition:** Open Source under the MIT License (`src/`, `test/`).
-- **Enterprise / Commercial Starter Kit ($39 USD):** Includes the versioned commercial GitHub Release ZIP (`v1.1.0`), pre-compiled `dist/` artifacts, commercial deployment rights across client/SaaS systems without source attribution, and direct setup guidance. 👉 [**Instant Checkout on Polar.sh ($39)**](https://buy.polar.sh/polar_cl_4mrUXvOPjiB4LEIEBsVyJshejMA8oq7XIHPQV163dbE)
-
----
-
-## 🛠️ Engineering Services & Portfolio
-
-- **Custom AI Worker Pipelines & LLM Gateways ($60/hr):** [Hire on Upwork](https://www.upwork.com/freelancers/~01f93f1a56b9ef1b8d)
-- **Live Storefront & Case Studies:** [sidsri14.github.io](https://sidsri14.github.io/)
-- **Direct Contact:** `sidsri1502@gmail.com`
-
+Contact: sidsri1502@gmail.com
