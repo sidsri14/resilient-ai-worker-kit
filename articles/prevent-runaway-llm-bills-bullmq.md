@@ -132,4 +132,4 @@ const worker = new Worker<ModelRequest, ModelResponse>(
 The complete, working source code is open-sourced on GitHub:
 👉 [**GitHub: sidsri14/resilient-ai-worker-kit**](https://github.com/sidsri14/resilient-ai-worker-kit)
 
-For enterprise queue dashboards, distributed rate-limiting middleware, and production Docker configs, grab the **Enterprise License** via [Polar.sh](https://buy.polar.sh/polar_cl_4mrUXvOPjiB4LEIEBsVyJshejMA8oq7XIHPQV163dbE).
+For unrestricted internal production & client deployment rights to the full TypeScript source (`BudgetManager`, `ResilientModelRouter`, BullMQ worker harness, and Vitest verification suite), grab the **Commercial License** via [Polar.sh](https://buy.polar.sh/polar_cl_4mrUXvOPjiB4LEIEBsVyJshejMA8oq7XIHPQV163dbE).
