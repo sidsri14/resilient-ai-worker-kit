@@ -1,5 +1,7 @@
 # Resilient AI Worker Kit
 
+[![DriftGuard CI Guard](https://img.shields.io/badge/DriftGuard-CI%20Guard%20Passed-blue)](https://github.com/marketplace/actions/driftguard-ci-guard)
+
 An AI-assisted Node.js/TypeScript starter for exploring BullMQ queues, sequential provider fallback and Redis-backed token-usage checks. This is prototype code with mock providers, not a production-validated AI service.
 
 ## Included
